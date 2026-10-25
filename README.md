@@ -45,19 +45,19 @@ You need a Google account, permission to create a Google Form and Sheet, and an 
 
 ### 1. Create the form
 
-Create a new Google Form. Add one question for each field below. These are example titles; the script matches keywords, so exact wording is not required.
+Create a new Google Form with the following question titles and types. Using these exact titles makes the first setup easier; if you choose different titles, check the matching patterns in `CONFIG.FIELDS`.
 
-| Field | Example question title | Suggested question type |
+| Question title | Question type | Required |
 | --- | --- | --- |
-| name | Name | Dropdown (one option per team member) |
-| projects | Projects worked on | Short answer or paragraph |
-| done | What did you complete today? | Paragraph |
-| planned | What do you plan to work on next? | Paragraph |
-| blockers | Any blockers or challenges? | Paragraph |
-| next steps | Next steps | Paragraph |
-| notes | Additional notes | Paragraph |
+| Name | Short answer | Yes |
+| Projects | Short answer | Yes |
+| Done | Paragraph | Yes |
+| Planned | Paragraph | Yes |
+| Blockers | Paragraph | No |
+| Next steps | Paragraph | No |
+| Notes | Paragraph | No |
 
-The **Name**, **Done**, and **Blockers** questions are required by the summary logic. Use the same spelling for each team member as in the script's `CONFIG.TEAM` list. A dropdown helps avoid spelling mismatches.
+For `Name`, use a dropdown with one option per team member if possible, and keep the names consistent with `CONFIG.TEAM`. The script requires the **Name**, **Done**, and **Blockers** columns to be found for its core summary checks; the form itself can leave **Blockers** optional so people without blockers can submit a blank answer. The script also includes the Projects, Planned, Next steps, and Notes answers when those columns are present.
 
 ### 2. Link the form to a response sheet
 
@@ -137,7 +137,7 @@ If a title does not match, edit its pattern in `CONFIG.FIELDS`. The `name`, `don
 
 ## Status
 
-Version 1. The summary logic is tested with sample data. The steps above describe the intended Google Forms/Sheets setup; actual behavior can vary with account permissions and form configuration. Real-world testing in different forms and sheets is welcome; please open an issue if something does not match.
+Version 1. The summary logic is tested with sample data. The Quick start documents the intended Google Forms/Sheets setup; the full integration should be verified with a real form, linked response sheet, and Apps Script preview before enabling scheduled emails. Account permissions and form configuration can affect behavior. Please open an issue if a step does not match your setup.
 
 ## How to help
 
